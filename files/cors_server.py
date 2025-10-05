@@ -1,3 +1,5 @@
+#this code is for hosting the images with allowing all origins to access without permissions
+# todo change the code so that it gets the url dynamically from the folder
 # cors_server.py
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 

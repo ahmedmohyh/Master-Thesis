@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="598320ec-aecc-486e-88ad-412c2cf7582f" name="Changes" comment="init commit" />
+    <list default="true" id="598320ec-aecc-486e-88ad-412c2cf7582f" name="Changes" comment="init commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/cors_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/files/cors_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/data_json.json" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/data_json.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_14.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_15.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_16.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_17.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_17.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_18.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_18.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/rag_9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/rag_pdf_example/rag_9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/utils/Pdf2ImageConverter.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +82,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Master thesis\logic\utils" />
+      <recent name="C:\Master thesis\files\images\rag_pdf_example" />
       <recent name="C:\Master thesis\files" />
     </key>
   </component>
@@ -79,7 +106,7 @@
       <workItem from="1759512329384" duration="2913000" />
       <workItem from="1759656235714" duration="1993000" />
       <workItem from="1759658367851" duration="6408000" />
-      <workItem from="1759666873723" duration="373000" />
+      <workItem from="1759666873723" duration="2252000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
