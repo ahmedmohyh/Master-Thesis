@@ -1,0 +1,6 @@
+openai
+pdfplumber
+pdf2image
+label-studio
+numpy
+scikit-learn
