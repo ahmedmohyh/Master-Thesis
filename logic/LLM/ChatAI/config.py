@@ -6,4 +6,5 @@ BASE_URL = "https://chat-ai.academiccloud.de/v1"
 
 # Default model (you can change to any available SAIA model)
 DEFAULT_MODEL = "meta-llama-3.1-8b-instruct"
+MODEL = "meta-llama-3.1-8b-instruct"
 RAG_MODEL = "meta-llama-3.1-8b-rag"

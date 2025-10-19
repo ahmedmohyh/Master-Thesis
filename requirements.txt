@@ -4,3 +4,8 @@ pdf2image
 label-studio
 numpy
 scikit-learn
+flask
+config
+pytesseract
+requests
+pillow
