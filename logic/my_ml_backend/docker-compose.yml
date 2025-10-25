@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  ml-backend:
+    container_name: ml-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: humansignal/ml-backend:chat-ai
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL}
+      - CHAT_API_KEY=${CHAT_API_KEY}
+      - CHAT_BASE_URL=${CHAT_BASE_URL}
+      - CHAT_MODEL=${CHAT_MODEL}
+      - WORKERS=${WORKERS}
+      - THREADS=${THREADS}
+      - PORT=${PORT}
+      - BASIC_AUTH_USER=${BASIC_AUTH_USER}
+      - BASIC_AUTH_PASS=${BASIC_AUTH_PASS}
+      - LABEL_STUDIO_URL=${LABEL_STUDIO_URL}
+      - LABEL_STUDIO_API_KEY=${LABEL_STUDIO_API_KEY}
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./data/server:/data

@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="598320ec-aecc-486e-88ad-412c2cf7582f" name="Changes" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/files/images/slim_7i/onlyOne.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Master thesis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Master thesis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/Annotation/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/Annotation/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/images/slim_7i/onlyOne.json" beforeDir="false" afterPath="$PROJECT_DIR$/files/images/slim_7i/onlyOne.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,25 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.ChatAI.executor": "Debug",
-    "Python.Pdf2ImageConverter.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.rag_query_pdf.executor": "Run",
-    "Python.test.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.ChatAI.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.Pdf2ImageConverter.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rag_query_pdf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Master thesis\files\images\slim_7i" />
@@ -184,7 +182,9 @@
       <workItem from="1759943989261" duration="790000" />
       <workItem from="1760170472980" duration="1934000" />
       <workItem from="1760782180595" duration="9790000" />
-      <workItem from="1760893533921" duration="7774000" />
+      <workItem from="1760893533921" duration="9531000" />
+      <workItem from="1761393184688" duration="3137000" />
+      <workItem from="1761400383710" duration="4002000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -250,16 +250,6 @@
           <url>file://$PROJECT_DIR$/logic/LLM/ChatAI/ChatAI.py</url>
           <line>35</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/logic/LLM/ChatAI/rag_query_pdf.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/logic/LLM/ChatAI/rag_query_pdf.py</url>
-          <line>82</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
