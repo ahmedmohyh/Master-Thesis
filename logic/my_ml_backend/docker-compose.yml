@@ -9,7 +9,7 @@ services:
     image: humansignal/ml-backend:chat-ai
     restart: always
     env_file:
-      - .env
+      - ../../.env
     environment:
       - LOG_LEVEL=${LOG_LEVEL}
       - CHAT_API_KEY=${CHAT_API_KEY}

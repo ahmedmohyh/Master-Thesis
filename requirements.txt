@@ -9,3 +9,5 @@ config
 pytesseract
 requests
 pillow
+python-dotenv
+pytest

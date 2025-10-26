@@ -1,0 +1,116 @@
+# --- Python general ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+*.egg
+
+# --- Byte-compiled / logs ---
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+
+# --- Jupyter / IPython ---
+.ipynb_checkpoints/
+.profile_default/
+ipython_config.py
+
+# --- Build and packaging ---
+build/
+dist/
+*.manifest
+*.spec
+
+# --- Cache directories ---
+.cache/
+.pytest_cache/
+.mypy_cache/
+__pypackages__/
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+*.pytest_cache/
+.cache/
+
+# --- Docker / containers ---
+# local build artifacts
+*.tar
+*.img
+*.pid
+docker-compose.override.yml
+# exclude generated container data
+data/server/
+data/models/
+data/debug/
+data/tmp/
+
+# --- Label Studio ML backend specific ---
+# Avoid caching any local Label Studio state or model output
+label_studio_ml.log
+*.sqlite3
+*.db
+*.jsonl
+*.csv
+*.tsv
+
+# --- Environment / secrets ---
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.enc
+
+# --- IDE & editor specific ---
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# --- System files ---
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# --- Testing / temporary ---
+test_output/
+debug/
+tmp/
+*.out
+*.old
+
+# --- Model artifacts ---
+# If your ML backend ever stores weights or checkpoints
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.onnx
+*.h5
+*.pkl
+*.joblib
+*.npz
+*.npy
+
+# --- Reports ---
+reports/
+*.pdf
+*.html
