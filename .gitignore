@@ -114,3 +114,6 @@ tmp/
 reports/
 *.pdf
 *.html
+*.jpg
+*.json
+
