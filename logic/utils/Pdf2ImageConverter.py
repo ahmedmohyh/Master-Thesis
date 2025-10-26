@@ -2,11 +2,11 @@ from pdf2image import convert_from_path
 import os, json
 
 pdf_folder = "C:/Master thesis/files/pdf"
-output_folder = "C:/Master thesis/files/images/slim_7i/"
+output_folder = "C:/Master thesis/files/images/iphone15/"
 os.makedirs(output_folder, exist_ok=True)
 
 data_json = []
-base_host_path = "http://localhost:9900/images/slim_7i"  # local HTTP server
+base_host_path = "http://host.docker.internal:9900/images/iphone15"  # local HTTP server
 
 for file in os.listdir(pdf_folder):
     name, ext = os.path.splitext(file)
@@ -22,5 +22,5 @@ for file in os.listdir(pdf_folder):
 
         data_json.append({"data": {"pages": img_list}})
 
-with open("../../files/images/slim_7i/data_json.json", "w") as f:
+with open("../../files/images/iphone15/data_json.json", "w") as f:
     json.dump(data_json, f, indent=2)

@@ -26,7 +26,7 @@ class NewModel(LabelStudioMLBase):
         if not self.api_key:
             raise ValueError("CHAT_API_KEY not set in environment")
 
-        self.client = OpenAI(api_key=self.api_key, base_url=self.base_url)
+        self.client = OpenAI(api_key=self.api_key, base_url=self.base_url, timeout=360)
         print(f"✅ Model initialized: {self.model_name} at {self.base_url}")
 
     def _ocr_image(self, image_url):
@@ -112,8 +112,8 @@ class NewModel(LabelStudioMLBase):
             pages = task.get("data", {}).get("pages", [])
             results = []
 
-            for page_url in pages:
-                print(f"📄 Processing page: {page_url}")
+            for page_index, page_url in enumerate(pages):
+                print(f"📄 Processing page {page_index}: {page_url}")
 
                 # --- OCR ---
                 full_text, text_blocks, (img_w, img_h) = self._ocr_image(page_url)
@@ -151,9 +151,11 @@ class NewModel(LabelStudioMLBase):
                                         "height": (h / img_h) * 100,
                                         "rotation": 0,
                                         "rectanglelabels": [key]
-                                    }
+                                    },
+                                    "item_index": page_index  # ✅ tell LS which page this belongs to
                                 })
-                                print(f"✅ Matched '{value}' as '{key}' (score={score:.2f}) at ({x},{y})")
+                                print(
+                                    f"✅ Matched '{value}' as '{key}' (page {page_index}, score={score:.2f}) at ({x},{y})")
 
             predictions.append({
                 "model_version": self.get("model_version"),
