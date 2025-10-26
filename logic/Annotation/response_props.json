@@ -1,0 +1,74 @@
+{
+  "props": [
+    {
+      "prop-name": "Quantity",
+      "prop-value": "1",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Maximum power output",
+      "prop-value": "5 V,1.5A",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Supported signaling protocols",
+      "prop-value": "USB 2.0 480 Mbps, SuperSpeed USB 5 Gbps",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Quantity",
+      "prop-value": "2",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Maximum power output",
+      "prop-value": "5 V, 3A",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Maximum power input",
+      "prop-value": "20 V, 3.25 A",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Supported signaling protocols",
+      "prop-value": "USB 2.0 480 Mbps, SuperSpeed USB 5 Gbps, SuperSpeed USB 10 Gbps, SuperSpeed USB 20 Gbps, DisplayPort 1.4, Thunderbolt 4 41.25 Gbps",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Diameter",
+      "prop-value": "3.5",
+      "prop-unit": "mm"
+    },
+    {
+      "prop-name": "Supported plug",
+      "prop-value": "3-pole, TRS, 4-pole, TRRS (CTIA and OMTP)",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Maximum output resolution",
+      "prop-value": "5120 x 3200",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Frame rate",
+      "prop-value": "60 Hz",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Color depth",
+      "prop-value": "24 bpp",
+      "prop-unit": "bits per pixel"
+    },
+    {
+      "prop-name": "Wi-Fi",
+      "prop-value": "Wi-Fi 6E",
+      "prop-unit": ""
+    },
+    {
+      "prop-name": "Bluetooth",
+      "prop-value": "Bluetooth 5",
+      "prop-unit": ""
+    }
+  ]
+}

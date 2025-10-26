@@ -111,9 +111,9 @@ tmp/
 *.npy
 
 # --- Reports ---
-reports/
-*.pdf
+# reports/
+# *.pdf
 *.html
-*.jpg
-*.json
+# *.jpg
+# *.json
 
