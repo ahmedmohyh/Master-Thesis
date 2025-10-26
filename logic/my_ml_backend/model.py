@@ -26,7 +26,7 @@ class NewModel(LabelStudioMLBase):
         if not self.api_key:
             raise ValueError("CHAT_API_KEY not set in environment")
 
-        self.client = OpenAI(api_key=self.api_key, base_url=self.base_url, timeout=360)
+        self.client = OpenAI(api_key=self.api_key, base_url=self.base_url, timeout=1800)
         print(f"✅ Model initialized: {self.model_name} at {self.base_url}")
 
     def _ocr_image(self, image_url):
@@ -81,6 +81,7 @@ class NewModel(LabelStudioMLBase):
                 {"role": "user", "content": prompt}
             ],
             temperature=0.1,
+            timeout=1800,
         )
 
         raw_output = response.choices[0].message.content.strip()
@@ -104,7 +105,7 @@ class NewModel(LabelStudioMLBase):
             print("Model output:\n", raw_output)
             return []
 
-    def predict(self, tasks, context=None, **kwargs):
+    def predict(self, tasks, context=None, timout=1200,  **kwargs):
         """Run OCR + LLM-based property extraction on each image page."""
         predictions = []
 
