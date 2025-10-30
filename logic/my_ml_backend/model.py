@@ -63,7 +63,7 @@ class NewModel(LabelStudioMLBase):
         prompt = f"""
         Extract all technical properties (name, value, and unit) from the following text.
         Return them as a *pure JSON list*, with keys: "prop-name", "prop-value", "prop-unit".
-        Do not include explanations or markdown fences.
+        Do not include explanations or markdown fences. Things like Wifi or bluetooth counts as prop names.
         Example:
         [
           {{"prop-name": "Battery", "prop-value": "5000", "prop-unit": "mAh"}},

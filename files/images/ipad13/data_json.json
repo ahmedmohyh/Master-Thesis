@@ -1,0 +1,23 @@
+[
+  {
+    "data": {
+      "pages": [
+        "http://host.docker.internal:9900/images/ipad13/ipad13_0.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_1.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_2.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_3.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_4.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_5.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_6.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_7.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_8.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_9.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_10.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_11.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_12.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_13.jpg",
+        "http://host.docker.internal:9900/images/ipad13/ipad13_14.jpg"
+      ]
+    }
+  }
+]
