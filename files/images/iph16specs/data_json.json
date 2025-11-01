@@ -1,0 +1,9 @@
+{
+  "data": {
+    "pdf_name": "iph16specs",
+    "pages": [
+      "http://host.docker.internal:9900/images/iph16specs/iph16specs_1.jpg",
+      "http://host.docker.internal:9900/images/iph16specs/iph16specs_2.jpg"
+    ]
+  }
+}
