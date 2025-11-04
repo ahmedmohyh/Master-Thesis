@@ -6,33 +6,61 @@ import requests
 from io import BytesIO
 from PIL import Image, ImageOps
 import pytesseract
-from openai import OpenAI
+from openai import OpenAI, RateLimitError
 from label_studio_ml.model import LabelStudioMLBase
 from label_studio_ml.response import ModelResponse
 
 
 class NewModel(LabelStudioMLBase):
-    """Custom ML backend that uses OCR + ChatAI to extract technical properties."""
+    """Custom ML backend that uses OCR + ChatAI to extract technical properties with key rotation."""
 
     def setup(self):
-        """Initialize model and API client"""
-        self.set("model_version", "1.1.0")
+        """Initialize model and API clients with key rotation support."""
+        self.set("model_version", "1.4.0")
 
-        # Load API configuration
-        self.api_key = os.getenv("CHAT_API_KEY")
+        # Load multiple API keys
+        keys = [
+            os.getenv("CHAT_API_KEY"),
+            os.getenv("CHAT_API_KEY1"),
+            os.getenv("CHAT_API_KEY2")
+        ]
+        self.api_keys = [k for k in keys if k]  # filter out None or empty
+        if not self.api_keys:
+            raise ValueError("❌ No valid CHAT_API_KEY found in environment")
+
+        self.current_key_index = 0
+
         self.base_url = os.getenv("CHAT_BASE_URL", "https://chat-ai.academiccloud.de/v1")
         self.model_name = os.getenv("CHAT_MODEL", "meta-llama-3.1-8b-instruct")
 
-        if not self.api_key:
-            raise ValueError("CHAT_API_KEY not set in environment")
-
-        self.client = OpenAI(api_key=self.api_key, base_url=self.base_url, timeout=1800)
+        # Initialize first client
+        self.client = OpenAI(api_key=self.api_keys[self.current_key_index], base_url=self.base_url, timeout=1800)
         print(f"✅ Model initialized: {self.model_name} at {self.base_url}")
+        print(f"🔑 Using API key #{self.current_key_index + 1}/{len(self.api_keys)}")
 
+    # -------------------------------
+    # Helper: rotate to next API key
+    # -------------------------------
+    def _switch_api_key(self):
+        """Switch to the next available API key when rate limit is hit."""
+        if self.current_key_index + 1 < len(self.api_keys):
+            self.current_key_index += 1
+            new_key = self.api_keys[self.current_key_index]
+            self.client = OpenAI(api_key=new_key, base_url=self.base_url, timeout=1800)
+            print(f"🔁 Switched to API key #{self.current_key_index + 1}/{len(self.api_keys)}")
+            return True
+        else:
+            print("🚫 All API keys exhausted — stopping predictions.")
+            return False
+
+    # -------------------------------
+    # OCR Section
+    # -------------------------------
     def _ocr_image(self, image_url):
         """Perform OCR on a given image URL."""
         print(f"🔍 Running OCR for image: {image_url}")
-        response = requests.get(image_url)
+
+        response = requests.get(image_url, timeout=30)
         response.raise_for_status()
 
         image = Image.open(BytesIO(response.content))
@@ -58,12 +86,16 @@ class NewModel(LabelStudioMLBase):
         print(f"🧾 OCR extracted {len(blocks)} text blocks.")
         return full_text, blocks, image.size
 
+    # -------------------------------
+    # LLM Section
+    # -------------------------------
     def _ask_model_for_properties(self, text):
         """Ask the ChatAI model to extract property triples from text."""
         prompt = f"""
         Extract all technical properties (name, value, and unit) from the following text.
         Return them as a *pure JSON list*, with keys: "prop-name", "prop-value", "prop-unit".
-        Do not include explanations or markdown fences. Things like Wifi or bluetooth counts as prop names.
+        Do not include explanations or markdown fences.
+        Things like Wifi, Bluetooth, or HDMI count as prop names.
         Example:
         [
           {{"prop-name": "Battery", "prop-value": "5000", "prop-unit": "mAh"}},
@@ -74,25 +106,25 @@ class NewModel(LabelStudioMLBase):
         {text}
         """
 
-        response = self.client.chat.completions.create(
-            model=self.model_name,
-            messages=[
-                {"role": "system", "content": "You are a precise information extraction assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.1,
-            timeout=1800,
-        )
-
-        raw_output = response.choices[0].message.content.strip()
-
-        # --- Attempt to extract JSON safely ---
         try:
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": "You are a precise information extraction assistant."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.1,
+                timeout=1800,
+            )
+
+            raw_output = response.choices[0].message.content.strip()
+
+            # --- Attempt to extract JSON safely ---
             match = re.search(r'\[.*\]', raw_output, re.DOTALL)
             json_str = match.group(0) if match else raw_output
             data = json.loads(json_str)
 
-            # Normalize: ensure all values are strings
+            # Normalize values
             for p in data:
                 for k, v in p.items():
                     p[k] = str(v).strip() if v is not None else ""
@@ -100,27 +132,53 @@ class NewModel(LabelStudioMLBase):
             print(f"✅ Parsed {len(data)} properties from model output.")
             return data
 
+        except RateLimitError:
+            print(f"🚫 API rate limit reached for key #{self.current_key_index + 1}")
+            if self._switch_api_key():
+                # Try again once with the new key
+                return self._ask_model_for_properties(text)
+            else:
+                raise  # All keys exhausted → handled in predict()
         except Exception as e:
             print(f"⚠️ Could not parse model output: {e}")
-            print("Model output:\n", raw_output)
             return []
 
-    def predict(self, tasks, context=None, timout=1200,  **kwargs):
+    # -------------------------------
+    # Prediction Section
+    # -------------------------------
+    def predict(self, tasks, context=None, timeout=1200, **kwargs):
         """Run OCR + LLM-based property extraction on each image page."""
         predictions = []
+        stop_processing = False
 
         for task in tasks:
             pages = task.get("data", {}).get("pages", [])
             results = []
 
             for page_index, page_url in enumerate(pages):
-                print(f"📄 Processing page {page_index}: {page_url}")
+                if stop_processing:
+                    print(f"🚫 Stopping early — no more API keys available.")
+                    break
 
-                # --- OCR ---
-                full_text, text_blocks, (img_w, img_h) = self._ocr_image(page_url)
+                print(f"📄 Processing page {page_index + 1}/{len(pages)}: {page_url}")
 
-                # --- LLM Extraction ---
-                props = self._ask_model_for_properties(full_text)
+                try:
+                    # --- OCR ---
+                    full_text, text_blocks, (img_w, img_h) = self._ocr_image(page_url)
+                except Exception as e:
+                    print(f"❌ OCR failed for {page_url}: {e}")
+                    continue
+
+                try:
+                    # --- LLM Extraction ---
+                    props = self._ask_model_for_properties(full_text)
+                except RateLimitError:
+                    print("🚫 All keys exhausted — stopping predictions now.")
+                    stop_processing = True
+                    break
+                except Exception as e:
+                    print(f"⚠️ LLM extraction failed for page {page_index}: {e}")
+                    props = []
 
                 # --- Match properties to OCR text (multi-match enabled) ---
                 for prop in props:
@@ -145,6 +203,8 @@ class NewModel(LabelStudioMLBase):
                                     "from_name": "rectangles",
                                     "to_name": "pdf",
                                     "type": "rectanglelabels",
+                                    "origin": "prediction",
+                                    "item_index": page_index,  # assign to correct page
                                     "value": {
                                         "x": (x / img_w) * 100,
                                         "y": (y / img_h) * 100,
@@ -152,18 +212,20 @@ class NewModel(LabelStudioMLBase):
                                         "height": (h / img_h) * 100,
                                         "rotation": 0,
                                         "rectanglelabels": [key]
-                                    },
-                                    "item_index": page_index  # ✅ tell LS which page this belongs to
+                                    }
                                 })
-                                print(
-                                    f"✅ Matched '{value}' as '{key}' (page {page_index}, score={score:.2f}) at ({x},{y})")
+                                print(f"✅ Matched '{value}' as '{key}' (page {page_index}, score={score:.2f}) at ({x},{y})")
 
             predictions.append({
                 "model_version": self.get("model_version"),
                 "result": results
             })
 
+        print(f"✅ Returning predictions for {len(predictions)} task(s).")
         return ModelResponse(predictions=predictions)
 
+    # -------------------------------
+    # Training Stub
+    # -------------------------------
     def fit(self, event, data, **kwargs):
         print(f"🧠 Received training event: {event}")
