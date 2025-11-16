@@ -1,0 +1,13 @@
+{
+  "data": {
+    "pdf_name": "TV_TU8000_Spec_Sheet_030220n",
+    "pages": [
+      "http://host.docker.internal:9900/images/TV_TU8000_Spec_Sheet_030220n/TV_TU8000_Spec_Sheet_030220n_1.jpg",
+      "http://host.docker.internal:9900/images/TV_TU8000_Spec_Sheet_030220n/TV_TU8000_Spec_Sheet_030220n_2.jpg",
+      "http://host.docker.internal:9900/images/TV_TU8000_Spec_Sheet_030220n/TV_TU8000_Spec_Sheet_030220n_3.jpg",
+      "http://host.docker.internal:9900/images/TV_TU8000_Spec_Sheet_030220n/TV_TU8000_Spec_Sheet_030220n_4.jpg",
+      "http://host.docker.internal:9900/images/TV_TU8000_Spec_Sheet_030220n/TV_TU8000_Spec_Sheet_030220n_5.jpg",
+      "http://host.docker.internal:9900/images/TV_TU8000_Spec_Sheet_030220n/TV_TU8000_Spec_Sheet_030220n_6.jpg"
+    ]
+  }
+}

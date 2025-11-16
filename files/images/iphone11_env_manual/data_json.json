@@ -1,0 +1,16 @@
+{
+  "data": {
+    "pdf_name": "iphone11_env_manual",
+    "pages": [
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_1.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_2.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_3.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_4.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_5.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_6.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_7.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_8.jpg",
+      "http://host.docker.internal:9900/images/iphone11_env_manual/iphone11_env_manual_9.jpg"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "data": {
+    "pdf_name": "TV_EU_LABEL",
+    "pages": [
+      "http://host.docker.internal:9900/images/TV_EU_LABEL/TV_EU_LABEL_1.jpg"
+    ]
+  }
+}

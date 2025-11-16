@@ -1,0 +1,9 @@
+{
+  "data": {
+    "pdf_name": "iphone11_techspecs",
+    "pages": [
+      "http://host.docker.internal:9900/images/iphone11_techspecs/iphone11_techspecs_1.jpg",
+      "http://host.docker.internal:9900/images/iphone11_techspecs/iphone11_techspecs_2.jpg"
+    ]
+  }
+}

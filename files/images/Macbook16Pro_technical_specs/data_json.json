@@ -1,0 +1,15 @@
+{
+  "data": {
+    "pdf_name": "Macbook16Pro_technical_specs",
+    "pages": [
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_1.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_2.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_3.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_4.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_5.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_6.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_7.jpg",
+      "http://host.docker.internal:9900/images/Macbook16Pro_technical_specs/Macbook16Pro_technical_specs_8.jpg"
+    ]
+  }
+}

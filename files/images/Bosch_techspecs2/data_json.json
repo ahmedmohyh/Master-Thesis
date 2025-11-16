@@ -1,0 +1,9 @@
+{
+  "data": {
+    "pdf_name": "Bosch_techspecs2",
+    "pages": [
+      "http://host.docker.internal:9900/images/Bosch_techspecs2/Bosch_techspecs2_1.jpg",
+      "http://host.docker.internal:9900/images/Bosch_techspecs2/Bosch_techspecs2_2.jpg"
+    ]
+  }
+}
