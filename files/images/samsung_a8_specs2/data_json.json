@@ -1,0 +1,9 @@
+{
+  "data": {
+    "pdf_name": "samsung_a8_specs2",
+    "pages": [
+      "http://host.docker.internal:9900/images/samsung_a8_specs2/samsung_a8_specs2_1.jpg",
+      "http://host.docker.internal:9900/images/samsung_a8_specs2/samsung_a8_specs2_2.jpg"
+    ]
+  }
+}
